@@ -17,12 +17,6 @@ public class ReqresTests {
 
     String  bodyForCreateUser = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
 
-    String  keyEmail = "data.email",
-            keyFirstName = "data.first_name",
-            keyLastName = "data.last_name",
-            keyName = "name",
-            keyJob = "job";
-
 
     @BeforeAll
     static void setUrl() {
@@ -35,9 +29,9 @@ public class ReqresTests {
         get(getSingleUser)
                 .then()
                 .log().body()
-                .body(keyEmail, is("janet.weaver@reqres.in"))
-                .body(keyFirstName, is("Janet"))
-                .body(keyLastName, is("Weaver"));
+                .body("data.email", is("janet.weaver@reqres.in"))
+                .body("data.first_name", is("Janet"))
+                .body("data.last_name", is("Weaver"));
     }
 
     @Test
@@ -58,8 +52,8 @@ public class ReqresTests {
                 .then()
                 .log().body()
                 .statusCode(200)
-                .body(keyName, is("morpheus"))
-                .body(keyJob, is("leader"));
+                .body("name", is("morpheus"))
+                .body("job", is("leader"));
     }
 
     @CsvSource(value = {
@@ -73,9 +67,9 @@ public class ReqresTests {
         get(getListUsers)
                 .then()
                 .log().body()
-                .body(keyEmail, hasItem(email))
-                .body(keyFirstName, hasItem(first_name))
-                .body(keyLastName, hasItem(last_name));
+                .body("data.email", hasItem(email))
+                .body("data.first_name", hasItem(first_name))
+                .body("data.last_name", hasItem(last_name));
     }
 
     @Test
@@ -89,7 +83,7 @@ public class ReqresTests {
                 .then()
                 .log().body()
                 .statusCode(201)
-                .body(keyName, is("morpheus"))
-                .body(keyJob, is("leader"));
+                .body("name", is("morpheus"))
+                .body("job", is("leader"));
     }
 }
