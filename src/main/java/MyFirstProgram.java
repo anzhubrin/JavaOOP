@@ -10,12 +10,12 @@ public class MyFirstProgram {
         dog.call();
 
         Bus bus = new Bus();
-        bus.number = 448;
+        bus.setNumber(448);
         bus.come();
 
         Bd base = new Bd();
-        base.size = 5.5;
-        base.name = "Dump";
+        base.setSize(5.5);
+        base.setName("Dump");
         base.delete();
 
     }

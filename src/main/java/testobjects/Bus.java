@@ -1,12 +1,12 @@
 package testobjects;
 
 public class Bus {
-    public int number;
-    public String way;
-    public String time;
+    private int number;
+    private String way;
+    private String time;
 
-    public void go() {
-        System.out.println("Автобус уехал");
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public void come() {

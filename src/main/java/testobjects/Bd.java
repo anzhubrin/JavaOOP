@@ -1,11 +1,20 @@
 package testobjects;
 
 public class Bd {
-    public String name;
-    public double size;
+    private String name;
+    private double size;
 
-    public void create() {
-        System.out.println("База создана с именем " + name);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSize(double size) {
+        if (size > 0) {
+            this.size = size;
+        } else {
+            System.out.println("Введенное значение неверное");
+        }
+
     }
 
     public void delete() {
